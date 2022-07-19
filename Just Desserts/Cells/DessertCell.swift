@@ -13,8 +13,11 @@ class DessertCell: UICollectionViewCell {
     let dessertImageView = DessertImageView()
     let dessertLabel = DessertLabel()
     
+    var viewModel: DessertCellViewModel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupUI()
     }
     
@@ -22,9 +25,20 @@ class DessertCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(dessert: Dessert) {
-        setImage(fromURL: dessert.strMealThumb)
-        dessertLabel.text = dessert.strMeal
+    func set(viewModel: DessertCellViewModel) {
+        self.viewModel = viewModel
+        setupOnUpdate()
+        viewModel.getImage(fromURL: viewModel.dessert.strMealThumb)
+        dessertLabel.text = viewModel.dessert.strMeal
+    }
+    
+    private func setupOnUpdate() {
+        viewModel.onUpdate = { [weak self] image in
+            guard let self = self else { return }
+            guard let image = image else { return }
+            
+            DispatchQueue.main.async { self.dessertImageView.image = image }
+        }
     }
     
     private func setupUI() {
@@ -46,13 +60,6 @@ class DessertCell: UICollectionViewCell {
             dessertLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             dessertLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
-    }
-    
-    private func setImage(fromURL url: String) {
-        NetworkManager.shared.getImage(from: url) { [weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async { self.dessertImageView.image = image }
-        }
     }
 }
 

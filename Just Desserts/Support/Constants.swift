@@ -7,4 +7,4 @@
 
 import UIKit
 
-enum DessertImage { static let placeholder = UIImage(named: "placeholder") }
+enum DessertImage { static let placeholder = UIImage(named: "placeholder")! }

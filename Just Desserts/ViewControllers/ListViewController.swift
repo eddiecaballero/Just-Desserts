@@ -9,7 +9,7 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var desserts: [Dessert] = []
+    var viewModel: ListViewModel!
     
     enum Section { case main }
     
@@ -18,27 +18,42 @@ class ListViewController: UIViewController {
     
     let activityIndicator = UIActivityIndicatorView(style: .large)
     
+    //MARK: - Inits
+    
+    init(viewModel: ListViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        setupOnUpdate()
     }
     
     //MARK: - Private
     
-    private func setupUI() {
-        setupCollectionView()
-        setupActivityIndicator()
-        getDesserts()
-        setupDataSource()
+    private func setupOnUpdate() {
+        viewModel.onUpdate = { [weak self] desserts in
+            guard let self = self else { return }
+            guard let desserts = desserts else { return }
+            
+            self.updateData(on: desserts)
+        }
     }
     
-    private func updateUI(with desserts: [Dessert]) {
-        self.desserts = desserts
-        
-        self.updateData(on: self.desserts)
+    private func setupUI() {
+        setupCollectionView()
+        setupDataSource()
+        setupActivityIndicator()
+        viewModel.getDesserts()
     }
     
     private func updateData(on desserts: [Dessert]) {
@@ -79,22 +94,10 @@ class ListViewController: UIViewController {
     private func setupDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Dessert>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, dessert) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DessertCell.reuseID, for: indexPath) as! DessertCell
-            cell.set(dessert: dessert)
+            let viewModel = DessertCellViewModel(service: DessertService(), dessert: dessert, placeholderImage: DessertImage.placeholder)
+            cell.set(viewModel: viewModel)
             return cell
         })
-    }
-    
-    private func getDesserts() {
-        activityIndicator.startAnimating()
-        NetworkManager.shared.getDesserts() { [weak self] result in
-            guard let self = self else { return }
-            DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
-            
-            switch result {
-            case .success(let desserts): DispatchQueue.main.async { self.updateUI(with: desserts) }
-            case .failure(let error): print(error.rawValue)
-            }
-        }
     }
 
 }
@@ -103,11 +106,12 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let dessert = desserts[indexPath.item]
+        let dessert = viewModel.desserts[indexPath.item]
         let cell = collectionView.cellForItem(at: indexPath) as! DessertCell
-        let image: UIImage = cell.dessertImageView.image ?? DessertImage.placeholder!
+        let image: UIImage = cell.dessertImageView.image ?? DessertImage.placeholder
         
-        let destinationViewController = DetailsViewController(dessert: dessert, image: image)
+        let viewModel = DetailsViewModel(dessert: dessert, image: image)
+        let destinationViewController = DetailsViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: destinationViewController)
         present(navigationController, animated: true)
     }

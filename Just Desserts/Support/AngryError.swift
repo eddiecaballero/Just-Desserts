@@ -14,4 +14,5 @@ enum AngryError: String, Error {
     case dataError = "Invalid Data? No 🧁 for you!"
     case decodeError = "Unable to decode? No 🧁 for you!"
     case noMealsError = "No meals? No 🧁 for you!"
+    case endpointError = "Endpoint error? No 🧁 for you!"
 }

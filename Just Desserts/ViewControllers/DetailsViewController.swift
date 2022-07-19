@@ -11,7 +11,7 @@ class DetailsViewController: UIViewController {
     
     //MARK: - Properties
     
-    var dessert: Dessert?
+    var viewModel: DetailsViewModel!
     
     let nameLabel = UILabel()
     let dessertImageView = DessertImageView()
@@ -20,10 +20,10 @@ class DetailsViewController: UIViewController {
     
     //MARK: - Inits
     
-    init(dessert: Dessert, image: UIImage) {
+    init(viewModel: DetailsViewModel) {
         super.init(nibName: nil, bundle: nil)
-        self.dessert = dessert
-        self.dessertImageView.image = image
+        
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -34,14 +34,30 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setDessert()
+
         setupUI()
+        setupOnUpdate()
+        viewModel.getDessert()
     }
     
     //MARK: - Private
     
     @objc func dismiss(_ sender: UIButton) { self.dismiss(animated: true) }
+    
+    private func setupOnUpdate() {
+        viewModel.onUpdate = { [weak self] dessert, image in
+            guard let self = self else { return }
+            guard var dessert = dessert, let image = image else { return }
+            
+            DispatchQueue.main.async {
+                self.nameLabel.text = dessert.strMeal
+                self.instructionsCardView.label.text = dessert.strInstructions
+                self.ingredientsAndMeasuresCardView.label.text = dessert.ingredientsAndMeasures
+                
+                self.dessertImageView.image = image
+            }
+        }
+    }
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
@@ -93,23 +109,6 @@ class DetailsViewController: UIViewController {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.bottomAnchor.constraint(equalTo: ingredientsAndMeasuresCardView.bottomAnchor)
         ])
-    }
-    
-    private func setDessert() {
-        
-        NetworkManager.shared.getDessert(id: dessert!.idMeal) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(var dessert):
-                DispatchQueue.main.async {
-                    self.nameLabel.text = dessert.strMeal
-                    self.instructionsCardView.label.text = dessert.strInstructions
-                    self.ingredientsAndMeasuresCardView.label.text = dessert.ingredientsAndMeasures
-                }
-            case .failure(let error): print(error.rawValue)
-            }
-        }
     }
 
 }

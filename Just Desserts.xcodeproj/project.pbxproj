@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0033C0287CA95100301706 /* DessertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0033BF287CA95100301706 /* DessertService.swift */; };
 		2C0DF07C283DE2E70099DF03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0DF07B283DE2E70099DF03 /* AppDelegate.swift */; };
 		2C0DF07E283DE2E70099DF03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0DF07D283DE2E70099DF03 /* SceneDelegate.swift */; };
 		2C0DF080283DE2E70099DF03 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0DF07F283DE2E70099DF03 /* ListViewController.swift */; };
@@ -20,8 +21,13 @@
 		2C187EA82840705C008F73B6 /* DessertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C187EA72840705C008F73B6 /* DessertCell.swift */; };
 		2C2231312845689A007AC3DF /* DessertImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2231302845689A007AC3DF /* DessertImageView.swift */; };
 		2C223133284568BB007AC3DF /* DessertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C223132284568BB007AC3DF /* DessertLabel.swift */; };
+		2C27B914288514CE0047E8C1 /* DessertCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C27B913288514CE0047E8C1 /* DessertCellViewModel.swift */; };
 		2C350E72284487C700252E3B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C350E71284487C700252E3B /* CardView.swift */; };
 		2C350E742844886B00252E3B /* CardLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C350E732844886B00252E3B /* CardLabel.swift */; };
+		2C433F1E28765748004A9ED1 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C433F1D28765748004A9ED1 /* ListViewModel.swift */; };
+		2C433F2028765788004A9ED1 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C433F1F28765788004A9ED1 /* DetailsViewModel.swift */; };
+		2C774606287F525F008D9739 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C774605287F525F008D9739 /* Endpoint.swift */; };
+		2C774608287F53DC008D9739 /* DessertEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C774607287F53DC008D9739 /* DessertEndpoint.swift */; };
 		2CBAFCB72845AC27005FBBA7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAFCB62845AC27005FBBA7 /* Constants.swift */; };
 		2CF7C7CA283EA24F00B2EA8B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7C7C9283EA24F00B2EA8B /* UIView+.swift */; };
 		2CF7C7CC283EA9BA00B2EA8B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7C7CB283EA9BA00B2EA8B /* NetworkManager.swift */; };
@@ -46,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0033BF287CA95100301706 /* DessertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertService.swift; sourceTree = "<group>"; };
 		2C0DF078283DE2E70099DF03 /* Just Desserts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Just Desserts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C0DF07B283DE2E70099DF03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C0DF07D283DE2E70099DF03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,8 +70,13 @@
 		2C187EA72840705C008F73B6 /* DessertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertCell.swift; sourceTree = "<group>"; };
 		2C2231302845689A007AC3DF /* DessertImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertImageView.swift; sourceTree = "<group>"; };
 		2C223132284568BB007AC3DF /* DessertLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertLabel.swift; sourceTree = "<group>"; };
+		2C27B913288514CE0047E8C1 /* DessertCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertCellViewModel.swift; sourceTree = "<group>"; };
 		2C350E71284487C700252E3B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		2C350E732844886B00252E3B /* CardLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLabel.swift; sourceTree = "<group>"; };
+		2C433F1D28765748004A9ED1 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		2C433F1F28765788004A9ED1 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		2C774605287F525F008D9739 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		2C774607287F53DC008D9739 /* DessertEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertEndpoint.swift; sourceTree = "<group>"; };
 		2CBAFCB62845AC27005FBBA7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2CF7C7C9283EA24F00B2EA8B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		2CF7C7CB283EA9BA00B2EA8B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -96,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C0033BE287CA90000301706 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2C0033BF287CA95100301706 /* DessertService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		2C0DF06F283DE2E70099DF03 = {
 			isa = PBXGroup;
 			children = (
@@ -122,10 +142,12 @@
 				2CBAFCB82845F0F6005FBBA7 /* Cells */,
 				2CBAFCB92845F14C005FBBA7 /* Extensions */,
 				2CBAFCBA2845F1CC005FBBA7 /* Labels */,
-				2CBAFCBC2845F236005FBBA7 /* Managers */,
 				2CBAFCBB2845F20F005FBBA7 /* Models */,
+				2CBAFCBC2845F236005FBBA7 /* Network */,
 				2CBAFCBD2845F266005FBBA7 /* Views */,
 				2CBAFCBE2845F285005FBBA7 /* ViewControllers */,
+				2C433F1C2876569C004A9ED1 /* ViewModels */,
+				2C0033BE287CA90000301706 /* Services */,
 				2CBAFCBF2845F2F2005FBBA7 /* Support */,
 				2C0DF089283DE2E80099DF03 /* Info.plist */,
 			);
@@ -147,6 +169,16 @@
 				2C0DF09E283DE2E90099DF03 /* Just_DessertsUITestsLaunchTests.swift */,
 			);
 			path = "Just DessertsUITests";
+			sourceTree = "<group>";
+		};
+		2C433F1C2876569C004A9ED1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2C433F1D28765748004A9ED1 /* ListViewModel.swift */,
+				2C433F1F28765788004A9ED1 /* DetailsViewModel.swift */,
+				2C27B913288514CE0047E8C1 /* DessertCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		2CBAFCB82845F0F6005FBBA7 /* Cells */ = {
@@ -182,12 +214,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		2CBAFCBC2845F236005FBBA7 /* Managers */ = {
+		2CBAFCBC2845F236005FBBA7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2C774605287F525F008D9739 /* Endpoint.swift */,
+				2C774607287F53DC008D9739 /* DessertEndpoint.swift */,
 				2CF7C7CB283EA9BA00B2EA8B /* NetworkManager.swift */,
 			);
-			path = Managers;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		2CBAFCBD2845F266005FBBA7 /* Views */ = {
@@ -353,11 +387,17 @@
 			files = (
 				2C0DF0AE283DFCF40099DF03 /* Dessert.swift in Sources */,
 				2C2231312845689A007AC3DF /* DessertImageView.swift in Sources */,
+				2C0033C0287CA95100301706 /* DessertService.swift in Sources */,
+				2C27B914288514CE0047E8C1 /* DessertCellViewModel.swift in Sources */,
 				2CF7C7CE283EC31700B2EA8B /* AngryError.swift in Sources */,
+				2C433F2028765788004A9ED1 /* DetailsViewModel.swift in Sources */,
 				2C350E742844886B00252E3B /* CardLabel.swift in Sources */,
 				2C223133284568BB007AC3DF /* DessertLabel.swift in Sources */,
+				2C774608287F53DC008D9739 /* DessertEndpoint.swift in Sources */,
+				2C433F1E28765748004A9ED1 /* ListViewModel.swift in Sources */,
 				2C0DF080283DE2E70099DF03 /* ListViewController.swift in Sources */,
 				2C0DF07C283DE2E70099DF03 /* AppDelegate.swift in Sources */,
+				2C774606287F525F008D9739 /* Endpoint.swift in Sources */,
 				2C350E72284487C700252E3B /* CardView.swift in Sources */,
 				2CF7C7CC283EA9BA00B2EA8B /* NetworkManager.swift in Sources */,
 				2C0DF07E283DE2E70099DF03 /* SceneDelegate.swift in Sources */,
