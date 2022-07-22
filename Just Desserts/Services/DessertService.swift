@@ -7,9 +7,9 @@
 
 import UIKit
 
-class DessertService {
+class DessertService: DessertServiceProtocol {
 
-    public func getDesserts(completion: @escaping (Result<[Dessert], AngryError>) -> Void) {
+    func getDesserts(completion: @escaping (Result<[Dessert], AngryError>) -> Void) {
         NetworkManager.shared.call(endpoint: DessertEndpoint.desserts) { (result: Result<Payload, AngryError>) in
             switch result {
             case .success(let payload):

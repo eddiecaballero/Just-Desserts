@@ -8,11 +8,11 @@
 import UIKit
 
 class DessertCellViewModel {
-    let service: DessertService!
+    let service: DessertServiceProtocol!
     var dessert: Dessert!
     var image: UIImage!
     
-    init(service: DessertService, dessert: Dessert, placeholderImage: UIImage) {
+    init(service: DessertServiceProtocol, dessert: Dessert, placeholderImage: UIImage) {
         self.service = service
         self.dessert = dessert
         self.image = placeholderImage

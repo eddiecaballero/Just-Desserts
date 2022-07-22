@@ -9,10 +9,10 @@ import Foundation
 
 class ListViewModel {
     
-    let service: DessertService!
+    let service: DessertServiceProtocol!
     var desserts: [Dessert] = []
     
-    init(service: DessertService) {
+    init(service: DessertServiceProtocol) {
         self.service = service
     }
     
@@ -24,7 +24,7 @@ class ListViewModel {
         self.onUpdate?(desserts)
     }
     
-    public func getDesserts() {
+    func getDesserts() {
         service.getDesserts { result in
             switch result {
             case .success(let desserts): self.update(desserts: desserts)

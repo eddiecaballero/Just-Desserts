@@ -110,7 +110,7 @@ extension ListViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! DessertCell
         let image: UIImage = cell.dessertImageView.image ?? DessertImage.placeholder
         
-        let viewModel = DetailsViewModel(dessert: dessert, image: image)
+        let viewModel = DetailsViewModel(service: DessertService(), dessert: dessert, image: image)
         let destinationViewController = DetailsViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: destinationViewController)
         present(navigationController, animated: true)

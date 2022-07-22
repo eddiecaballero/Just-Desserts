@@ -8,11 +8,12 @@
 import UIKit
 
 class DetailsViewModel {
-    let service: DessertService = DessertService()
+    let service: DessertServiceProtocol!
     var dessert: Dessert!
     var image: UIImage!
     
-    init(dessert: Dessert, image: UIImage) {
+    init(service: DessertServiceProtocol, dessert: Dessert, image: UIImage) {
+        self.service = service
         self.dessert = dessert
         self.image = image
     }
