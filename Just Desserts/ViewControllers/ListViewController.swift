@@ -10,6 +10,7 @@ import UIKit
 class ListViewController: UIViewController {
     
     var viewModel: ListViewModel!
+    weak var coordinator: MainCoordinator?
     
     enum Section { case main }
     
@@ -110,10 +111,7 @@ extension ListViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! DessertCell
         let image: UIImage = cell.dessertImageView.image ?? DessertImage.placeholder
         
-        let viewModel = DetailsViewModel(service: DessertService(), dessert: dessert, image: image)
-        let destinationViewController = DetailsViewController(viewModel: viewModel)
-        let navigationController = UINavigationController(rootViewController: destinationViewController)
-        present(navigationController, animated: true)
+        coordinator?.showDetailsViewController(service: DessertService(), dessert: dessert, image: image)
     }
 }
 
