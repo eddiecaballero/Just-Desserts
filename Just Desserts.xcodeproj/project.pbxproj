@@ -32,6 +32,7 @@
 		2C774606287F525F008D9739 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C774605287F525F008D9739 /* Endpoint.swift */; };
 		2C774608287F53DC008D9739 /* DessertEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C774607287F53DC008D9739 /* DessertEndpoint.swift */; };
 		2CB75212288E5B3C00449141 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB75211288E5B3C00449141 /* Coordinator.swift */; };
+		2CB75215288F69C600449141 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB75214288F69C600449141 /* DependencyContainer.swift */; };
 		2CBAFCB72845AC27005FBBA7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAFCB62845AC27005FBBA7 /* Constants.swift */; };
 		2CF7C7CA283EA24F00B2EA8B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7C7C9283EA24F00B2EA8B /* UIView+.swift */; };
 		2CF7C7CC283EA9BA00B2EA8B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7C7CB283EA9BA00B2EA8B /* NetworkManager.swift */; };
@@ -85,6 +86,7 @@
 		2C774605287F525F008D9739 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		2C774607287F53DC008D9739 /* DessertEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertEndpoint.swift; sourceTree = "<group>"; };
 		2CB75211288E5B3C00449141 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		2CB75214288F69C600449141 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		2CBAFCB62845AC27005FBBA7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2CF7C7C9283EA24F00B2EA8B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		2CF7C7CB283EA9BA00B2EA8B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				2CBAFCB82845F0F6005FBBA7 /* Cells */,
 				2CB75210288E5B1500449141 /* Coordinators */,
 				2CBAFCB92845F14C005FBBA7 /* Extensions */,
+				2CB75213288F698C00449141 /* DependencyContainer */,
 				2CBAFCBA2845F1CC005FBBA7 /* Labels */,
 				2CBAFCBB2845F20F005FBBA7 /* Models */,
 				2CBAFCBC2845F236005FBBA7 /* Network */,
@@ -199,6 +202,14 @@
 				2CB75211288E5B3C00449141 /* Coordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		2CB75213288F698C00449141 /* DependencyContainer */ = {
+			isa = PBXGroup;
+			children = (
+				2CB75214288F69C600449141 /* DependencyContainer.swift */,
+			);
+			path = DependencyContainer;
 			sourceTree = "<group>";
 		};
 		2CBAFCB82845F0F6005FBBA7 /* Cells */ = {
@@ -418,6 +429,7 @@
 				2C774608287F53DC008D9739 /* DessertEndpoint.swift in Sources */,
 				2C433F1E28765748004A9ED1 /* ListViewModel.swift in Sources */,
 				2C0DF080283DE2E70099DF03 /* ListViewController.swift in Sources */,
+				2CB75215288F69C600449141 /* DependencyContainer.swift in Sources */,
 				2C0DF07C283DE2E70099DF03 /* AppDelegate.swift in Sources */,
 				2C774606287F525F008D9739 /* Endpoint.swift in Sources */,
 				2C350E72284487C700252E3B /* CardView.swift in Sources */,

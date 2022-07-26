@@ -22,14 +22,15 @@ class MainCoordinator: Coordinator {
     var rootViewController: UIViewController?
     
     func start() {
-        let listViewController = ListViewController(viewModel: ListViewModel(service: DessertService()))
+        let listViewController = DependencyContainer().makeListViewController()
         listViewController.coordinator = self
         rootViewController = listViewController
     }
     
     func showDetailsViewController(service: DessertService, dessert: Dessert, image: UIImage) {
-        let viewModel = DetailsViewModel(service: service, dessert: dessert, image: image)
-        let destinationViewController = DetailsViewController(viewModel: viewModel)
+        let container = DependencyContainer()
+        let viewModel = container.makeDetailsViewModel(service: service, dessert: dessert, image: image)
+        let destinationViewController = container.makeDetailsViewController(viewModel: viewModel)
         navigationController = UINavigationController(rootViewController: destinationViewController)
         rootViewController?.present(navigationController, animated: true)
     }

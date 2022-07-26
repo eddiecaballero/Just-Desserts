@@ -95,7 +95,8 @@ class ListViewController: UIViewController {
     private func setupDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Dessert>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, dessert) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DessertCell.reuseID, for: indexPath) as! DessertCell
-            let viewModel = DessertCellViewModel(service: DessertService(), dessert: dessert, placeholderImage: DessertImage.placeholder)
+            let container = DependencyContainer()
+            let viewModel = container.makeDessertCellViewModel(service: DessertService(), dessert: dessert, placeholderImage: DessertImage.placeholder)
             cell.set(viewModel: viewModel)
             return cell
         })
