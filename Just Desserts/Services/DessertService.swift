@@ -17,7 +17,7 @@ class DessertService: DessertServiceProtocol {
                     completion(.failure(.noMealsError))
                     return
                 }
-                let sortedDesserts = desserts.sorted(by: {$0.strMeal > $1.strMeal})
+                let sortedDesserts = desserts.sorted(by: {$0.strMeal < $1.strMeal})
                 completion(.success(sortedDesserts))
             case .failure(let error): completion(.failure(error))
             }

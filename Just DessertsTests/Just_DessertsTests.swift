@@ -69,20 +69,14 @@ class Just_DessertsTests: XCTestCase {
     func testDessertServiceGetDessertsAlphabeticallyOrderedByNames() {
         let exp = expectation(description: "Get desserts from Service aphabetically ordered by name.")
         
-        NetworkManager.shared.call(endpoint: DessertEndpoint.desserts) { (result: Result<Payload, AngryError>) in
+        DessertService().getDesserts { (result: Result<[Dessert], AngryError>) in
             switch result {
-            case .success(let payload):
-                guard let desserts = payload.meals else {
-                    XCTFail("Error: \(AngryError.noMealsError)")
-                    return
-                }
-                
+            case .success(let desserts):
                 for i in 1..<desserts.count {
-                    if desserts[i-1].strMeal.lowercased() > desserts[i].strMeal.lowercased() {
+                    if desserts[i-1].strMeal > desserts[i].strMeal {
                         XCTFail("Desserts not alphabetically ordered by name.")
                     }
                 }
-                
             case .failure(let error): XCTFail("Error: \(error)")
             }
             exp.fulfill()
